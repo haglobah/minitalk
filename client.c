@@ -11,3 +11,38 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	ft_sendc(int pid, char c)
+{
+	int	index;
+
+	index = -1;
+	while (++index < 8)
+	{
+		if (c & (1 << index))
+			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
+		//TODO: delay?
+	}
+}
+
+void	ft_sendstr(int pid, char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		ft_sendc(pid, str[i]);
+}
+
+int	main(int argc, char *argv[])
+{
+	if (argc != 3)
+	{
+		ft_printf("Wrong number of args, namely %i != 3. Sorry.", argc);
+		return (1);
+	}
+	ft_sendstr(ft_atoi(argv[1]), argv[2]);
+	return (0);
+}

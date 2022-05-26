@@ -10,4 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
+
+# include "./libft/libft.h"
+# include <signal.h>
+# include <unistd.h>
+
+typedef struct s_character_bitindex
+{
+	char	c;
+	int		index;
+}	t_ichar;
+
+#endif
