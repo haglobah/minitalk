@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:08:22 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/31 11:54:03 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/31 12:34:19 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_listen(int signal)
 {
-	static t_ichar	ic = {0, 0};
+	static t_ichar	ic;
 
 	if (signal == SIGUSR2)
 		ic.c |= (1 << ic.index);
@@ -37,5 +37,5 @@ int	main(void)
 	signal(SIGUSR2, ft_listen);
 	while (1)
 		pause();
-//	return (0);
+	return (0);
 }
