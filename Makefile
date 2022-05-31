@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:14:12 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/05/31 12:21:42 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/05/31 12:38:39 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): start server client
 
 start:
-	@make bonus -C $(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 	@mv ./$(LIBFT_DIR)/libft.a ./libft.a
 
 server:
