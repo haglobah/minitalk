@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:14:12 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/05/26 16:14:12 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/05/31 12:21:42 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,21 @@ CFLAGS = -Wall -Werror -Wextra
 UNSAFE_FLAGS = -Wall
 LIBFT_DIR = libft
 
-all: $(NAME) server client
+all: $(NAME) 
 
-$(NAME): $(SRC)
-	make bonus -C $(LIBFT_DIR)
-	mv ./$(LIBFT_DIR)/libft.a ./libft.a
+$(NAME): start server client
+
+start:
+	@make bonus -C $(LIBFT_DIR)
+	@mv ./$(LIBFT_DIR)/libft.a ./libft.a
 
 server:
-	$(CC) $(CFLAGS) $(SRC) libft.a -o $@
-	echo "\n server ready!\n"
+	@$(CC) $(CFLAGS) $(SSRC) libft.a -o $@
+	@echo " server ready!"
 
 client:
-	$(CC) $(CFLAGS) $(SRC) libft.a -o $@
-	echo "\n client ready!\n"
+	@$(CC) $(CFLAGS) $(CSRC) libft.a -o $@
+	@echo " client ready!"
 
 clean:
 	rm -f $(SSOB)

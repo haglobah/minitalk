@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:08:19 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/26 16:08:19 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/31 12:22:37 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_sendc(int pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		//TODO: delay?
+		usleep(SLEEP_TIME);
 	}
 }
 
@@ -43,6 +43,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Wrong number of args, namely %i != 3. Sorry.", argc);
 		return (1);
 	}
+	ft_printf("%s", argv[2]);
 	ft_sendstr(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }
