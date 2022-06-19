@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:08:19 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/31 12:22:37 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/06/19 11:34:56 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ int	main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		ft_printf("Wrong number of args, namely %i != 3. Sorry.", argc);
+		ft_printf("Wrong number of args, namely %i != 3. Sorry.\n", argc);
 		return (1);
 	}
-	ft_printf("%s", argv[2]);
 	ft_sendstr(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }
