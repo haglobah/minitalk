@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:14:12 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/06/19 11:39:07 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/10/19 13:33:28 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,14 @@ CFLAGS = -Wall -Werror -Wextra
 UNSAFE_FLAGS = -Wall
 LIBFT_DIR = libft
 
-all: $(NAME) 
+all: $(NAME)
 
 $(NAME): start
 	@make $(SNAME) 
 	@make $(CNAME)
 
 start:
+	@if [ ! -d "libft" ]; then git clone git@github.com:haglobah/libft.git; fi
 	@make -C $(LIBFT_DIR)
 	@mv ./$(LIBFT_DIR)/libft.a ./libft.a
 
