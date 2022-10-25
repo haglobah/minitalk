@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    $(MAKE)file                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:14:12 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/10/25 22:09:56 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/10/25 22:13:26 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,17 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 UNSAFE_FLAGS = -Wall
 LIBFT_DIR = libft
+LFT = libft.a
 
 all: $(NAME)
 
-$(NAME): start
-	@make $(SNAME) 
-	@make $(CNAME)
+$(NAME): $(LFT)
+	@$(MAKE) $(SNAME) 
+	@$(MAKE) $(CNAME)
 
-start:
+$(LFT):
 	@if [ ! -d "libft" ]; then git clone https://github.com/haglobah/libft.git; fi
-	@make -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 	@mv ./$(LIBFT_DIR)/libft.a ./libft.a
 
 $(SNAME):
@@ -43,11 +44,11 @@ $(CNAME):
 	@echo " client ready!"
 
 clean:
-	rm -f $(SSOB)
-	rm -f $(CSOB)
+	rm -f $(SSOB) $(CSOB)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(SNAME) $(CNAME)
 
 re: fclean
-	@make all
+	@$(MAKE) all
